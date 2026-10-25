@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#12243b">
+    <title>Clair — météo locale</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="shell">
+        <header>
+            <a class="brand"><span class="logo">☼</span> clair<span class="lime">.</span></a>
+            <span class="live"><i></i> LES CONDITIONS, EN DIRECT</span>
+            <button id="units">°C <span>/</span> °F</button>
+        </header>
+
+        <section class="intro">
+            <div>
+                <p id="date" class="eyebrow">MÉTÉO LOCALE</p>
+                <h1>Le ciel, <span>là où vous êtes.</span></h1>
+            </div>
+            <form id="search">
+                <i data-lucide="search"></i>
+                <input id="city" placeholder="Rechercher une ville…" aria-label="Rechercher une ville">
+                <button aria-label="Rechercher">→</button>
+            </form>
+        </section>
+
+        <p id="status" role="status">Chargement de la météo…</p>
+
+        <section class="grid">
+            <article class="card current">
+                <div class="row">
+                    <div>
+                        <p class="eyebrow">EN CE MOMENT</p>
+                        <h2 id="place">Paris</h2>
+                    </div>
+                    <button class="locate" id="locate" title="Utiliser ma position">◎</button>
+                </div>
+
+                <div class="now">
+                    <div>
+                        <div class="temp" id="temp">--<sup>°</sup></div>
+                        <p class="muted">Ressenti <b id="feels">--°</b></p>
+                    </div>
+                    <div class="condition">
+                        <span id="icon">☀️</span>
+                        <p id="summary">—</p>
+                    </div>
+                </div>
+
+                <div class="range">
+                    <span>↑ <b id="high">--°</b> <small>Max</small></span>
+                    <i><b></b></i>
+                    <span>↓ <b id="low">--°</b> <small>Min</small></span>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <h3>Heure par heure</h3>
+                    <span class="muted small">Prochaines heures</span>
+                </div>
+                <div id="hours" class="hours"></div>
+            </article>
+
+            <div class="right">
+                <article class="card forecast">
+                    <div class="row">
+                        <div>
+                            <p class="eyebrow">À VENIR</p>
+                            <h3>Cette semaine</h3>
+                        </div>
+                        <span>▦</span>
+                    </div>
+                    <div id="days"></div>
+                </article>
+
+                <div class="details">
+                    <article class="card detail">
+                        <span class="detail-icon">☼</span>
+                        <p class="eyebrow">LE SOLEIL SE LÈVE</p>
+                        <strong id="sunrise">--:--</strong>
+                        <div class="sun-curve"><i></i></div>
+                        <p class="foot">Coucher <b id="sunset">--:--</b></p>
+                    </article>
+
+                    <article class="card detail">
+                        <span class="detail-icon teal">≋</span>
+                        <p class="eyebrow">VENT</p>
+                        <strong><span id="wind">--</span><small> km/h</small></strong>
+                        <p class="foot">Direction <b id="direction">—</b></p>
+                    </article>
+
+                    <article class="card detail">
+                        <span class="detail-icon blue">◉</span>
+                        <p class="eyebrow">HUMIDITÉ</p>
+                        <strong><span id="humidity">--</span><small>%</small></strong>
+                        <p class="foot">Risque de pluie <b id="rain">--%</b></p>
+                    </article>
+
+                    <article class="card detail">
+                        <span class="detail-icon lime">✳</span>
+                        <p class="eyebrow">INDICE UV</p>
+                        <strong id="uv">--</strong>
+                        <p class="foot" id="uvlabel">En attente</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>Données météo <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></span>
+            <span>Fait pour regarder dehors <b class="lime">✳</b></span>
+        </footer>
+    </main>
+</body>
+
+</html>
